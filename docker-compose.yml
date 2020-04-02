@@ -7,11 +7,10 @@ nifi:
   environment:
     - TZ=Asia/Seoul
   links:
-    # - mariadb:mariadb.com
     - mysql:mysql.com
   volumes:
     - D:\docker-data\container\nifi\volumes:/home/nifi
- 
+    
 ## MySQL
 mysql:
   image: mysql:latest
@@ -21,3 +20,34 @@ mysql:
   environment:
     - MYSQL_ROOT_PASSWORD=1234
     - TZ=Asia/Seoul
+
+  
+#vsftpd
+# vsftpd:
+  # image: fauria/vsftpd
+  # container_name: vsftpd
+  # ports:
+    # - "20:20"
+    # - "21:21"
+    # - "21100-21110:21100-21110"
+  # volumes:
+    # - D:\docker-data\container\vsftpd\volumes:/home/vsftpd 
+  # environment:
+    # - FTP_USER=jshwang
+    # - FTP_PASS=jshwang  
+    # - PASV_ADDRESS=172.17.0.3
+    # - PASV_MIN_PORT=21100
+    # - PASV_MAX_PORT=21110
+    # - TZ=Asia/Seoul
+#  restart: always
+
+## Mariadb
+# mariadb:
+  # image: mariadb:latest
+  # container_name: mariadb
+  # ports:
+    # - "3306:3306"
+  # environment:
+    # - MYSQL_ROOT_PASSWORD=1234
+    # - TZ=Asia/Seoul
+  
